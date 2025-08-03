@@ -1,0 +1,36 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/employee",
+      "destination": "/pages/employee.html"
+    },
+    {
+      "source": "/attendance",
+      "destination": "/pages/attendance.html"
+    },
+    {
+      "source": "/payroll",
+      "destination": "/pages/payroll.html"
+    },
+    {
+      "source": "/contracts",
+      "destination": "/pages/contracts.html"
+    },
+    {
+      "source": "/violations",
+      "destination": "/pages/violations.html"
+    },
+    {
+      "source": "/directives",
+      "destination": "/pages/directives.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/index.html"
+    }
+  ]
+}
