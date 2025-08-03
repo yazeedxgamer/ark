@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول - أركانات</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>تسجيل الدخول</h2>
+    <input type="email" id="email" placeholder="البريد الإلكتروني">
+    <input type="password" id="password" placeholder="كلمة المرور">
+    <button onclick="login()">دخول</button>
+    <p id="error-msg" style="color:red;"></p>
+  </div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    async function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        document.getElementById('error-msg').innerText = error.message;
+        return;
+      }
+
+      const { user } = data;
+      const { data: userData } = await supabase.from('users').select('user_type').eq('id', user.id).single();
+
+      if (!userData || !userData.user_type) {
+        document.getElementById('error-msg').innerText = 'لم يتم تحديد نوع المستخدم.';
+        return;
+      }
+
+      const type = userData.user_type;
+      if (type === 'admin') location.href = '/admin-dashboard.html';
+      else if (type === 'guard') location.href = '/guard-dashboard.html';
+      else if (type === 'ops') location.href = '/operations-dashboard.html';
+      else document.getElementById('error-msg').innerText = 'صلاحيات غير معروفة.';
+    }
+  </script>
+</body>
+</html>

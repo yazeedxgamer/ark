@@ -2,35 +2,19 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/index.html"
+      "destination": "/pages/login.html"
     },
     {
-      "source": "/employee",
-      "destination": "/pages/employee.html"
+      "source": "/admin-dashboard",
+      "destination": "/pages/admin-dashboard.html"
     },
     {
-      "source": "/attendance",
-      "destination": "/pages/attendance.html"
+      "source": "/guard-dashboard",
+      "destination": "/pages/guard-dashboard.html"
     },
     {
-      "source": "/payroll",
-      "destination": "/pages/payroll.html"
-    },
-    {
-      "source": "/contracts",
-      "destination": "/pages/contracts.html"
-    },
-    {
-      "source": "/violations",
-      "destination": "/pages/violations.html"
-    },
-    {
-      "source": "/directives",
-      "destination": "/pages/directives.html"
-    },
-    {
-      "source": "/dashboard",
-      "destination": "/index.html"
+      "source": "/operations-dashboard",
+      "destination": "/pages/operations-dashboard.html"
     }
   ]
 }
